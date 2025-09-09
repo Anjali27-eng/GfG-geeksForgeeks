@@ -1,0 +1,19 @@
+solution in python3
+
+class Solution:
+
+def assignHole (self, A,B):
+
+# code here
+
+A.sort()
+
+B.sort()
+
+ans =0
+
+for a,b in zip(A,B):
+
+ans =max(ans, abs(a-b))
+
+return ans
