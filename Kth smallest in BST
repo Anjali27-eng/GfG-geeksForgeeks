@@ -1,0 +1,23 @@
+class Solution {
+    int count;
+    int result;
+
+    public int kthSmallest(Node root, int k) {
+        count = 0;
+        result = -1;
+        inorder(root, k);
+        return result;
+    }
+    
+    void inorder(Node root, int k) {
+        if (root == null || count >= k) return;
+        inorder(root.left, k);
+        count++;
+        // When count == k, we've found our answer
+        if (count == k) {
+            result = root.data;
+            return;
+        }
+        inorder(root.right, k);
+    }
+}
